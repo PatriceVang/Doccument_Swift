@@ -1,0 +1,86 @@
+mkdir : tao folde
+mv: doi ten
+////
+////////////////////////////////Create Window //////////////// 
+https://fxstudio.dev/bat-dau-ios-project-khong-su-dung-storyboard-voi-xcode-11-va-swift-5-1/
+Xoá file Main.storyboard
+Xoá Main trong Main Interface
+Xoá file ViewController.swift
+func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = MyViewController()
+        self.window = window
+        window.makeKeyAndVisible()
+	///tao navigation
+        window.rootViewController = UINavigationController(rootViewController: SignInViewController())
+    }
+/////
+guard let num = Int else {
+return k biet num la ai
+}
+num la kieu Int
+/////
+
+selectionStyle = .none // bo hightlight khi selected
+
+
+/////Controling keyboard
+//touch outside to hide keyboard
+func touchesBegan(touches: Set<UITouch>, with event: UIEvent?) {
+	self.view.endEditing(true)
+} 
+// acive btn Return inside Keyboard to shutdown
+func textFieldShouldReturn(_ textField: UITextfield) -> Bool {
+	textField.resignFirstReponder()
+	return true
+}
+
+
+////  delegate
+ViewA  ----->	ViewB
+1: var delegate at ViewB
+2: At ViewA: B.delegate = self
+
+//// Create Lable by code
+let myLb = UIlabel(frame: CGRect(x: 100, Y:, width:, heigth:))
+myLb.text = ""
+    .textcolor = UIcolor.blue
+    .textAliment = .center
+    .backgroudColor = UIcolor.red
+self.view.addSubview(myLb)	
+
+self.view.addSubView(myL) display 	
+
+///// Create Btn by code
+let myBtn = UIButton(frame: CGrecr(x,y,width,height))
+myBtn.setTitle("", for: .normal) trang thai bt
+     .settitleColor(UIcolor.green, for: .normal)
+     .setTilteColor(UIcolor.red, for: hightlight) giu se co mau do
+     .backgroudcolor = UIcolor.blue
+     .addTarget(self, action: #selector(ten func), for: .touchUpinside)
+self.view.addSubview(myBtn)
+
+//Create TF by code
+let myTf = UITF(frame
+.text = ""
+.placeholdel = ""
+.textColore = UIcolor
+.ketboardtype = .emailAddress
+.returnKeyType = .next
+.borderstyle = .roudedRect
+
+
+/////////////////////////Date Picker/////////////////////
+let datePicker : UIDatePicker = {
+	let date = DatePicker()
+	date.locale = Locale(identify: "vi")
+	return date 
+}
+
+
+
+
+			
+			
