@@ -1,5 +1,14 @@
 mkdir : tao folde
-mv: doi ten
+guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        
+        let vc = FirstViewController()
+        let navi = UINavigationController(rootViewController: vc)
+        
+        window.rootViewController = navi
+        
+        self.window = window
+        window.makeKeyAndVisible()mv: doi ten
 ////
 ////////////////////////////////Create Window //////////////// 
 https://fxstudio.dev/bat-dau-ios-project-khong-su-dung-storyboard-voi-xcode-11-va-swift-5-1/
@@ -8,14 +17,14 @@ Xoá Main trong Main Interface
 Xoá file ViewController.swift
 func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = MyViewController()
+	let vc = FristViewController()
+	let navi = UINavigationController(rootViewController: vc)
+        window.rootViewController = navi
         self.window = window
         window.makeKeyAndVisible()
 	///tao navigation
-        window.rootViewController = UINavigationController(rootViewController: SignInViewController())
-    }
+}
 /////
 guard let num = Int else {
 return k biet num la ai
@@ -78,9 +87,60 @@ let datePicker : UIDatePicker = {
 	date.locale = Locale(identify: "vi")
 	return date 
 }
+/////////////////////////Table View////////
+ func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 30))
+        let label = UILabel(frame: CGRect(x: 10, y: 5, width: tableView.frame.size.width, height: 30))
+        label.text = self.headerSection[section]
+        label.font = UIFont.systemFont(ofSize: 20)
+        view.addSubview(label)
+        view.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        return view
 
+numberOFsection: co bao nhieu section
+heightForheightForHeaderInSection: chieu cao section
+numberOnumberOfRowsInSection: trong section co bao nhieu cell
+heightForRowAt: chieu cao cua cell
 
+/////////////////////////Colection View/////////////	
+referenceSizeForHeaderInSection: kich thuoc cua header
+sizeForItemAt: size cua cell   (DelegateFlowLayout)
+root: let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = CollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        self.window = window
+var preferenceSttBarStyle: UISttBarStyle {return .lightconTene} : hien stt bar len header
+viewForSupplementaryElementOfKind: trả về header
+numberOfsection: Có bao nhiêu section
+insetinsetForSectionAt: khoản cách xung quanh item
 
-
-			
-			
+///////////////////////Gradient////////////////
+fileprivate func setupGraient() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradient.locations = [0, 1]
+        layer.addSublayer(gradient)
+        gradient.frame = self.bounds
+}
+//////////////////////Firebase////////////////
+write up firebase: Page1 
+- import firebaseDatabase
+var ref : DataseReference!
+ref = Database.database().reference()
+ref.chile("Name").childByAutoId()/setValue("Hello world")
+read: Page2
+var data = [String]()
+var ref: DatabaseReference?
+var databaseHandle = DatabaseHandle()
+private func onFirebase() {
+        //set firebase refenrence
+    ref = Database.database().reference()
+        //retrieve the posts and listen for changes
+    databaseHandle = ref?.child("Posts").observe(.childAdded, with: { (snapshot) in
+        //Code to execute when a child os added under "Posts"
+        //Take the value from snapshot and addded it to var data
+    let post = snapshot.value as? String
+    guard let actualPost = post else {return}
+    self.data.append(actualPost)
+    self.myTableView.reloadData()
+}) as! DatabaseHandle
+ 
