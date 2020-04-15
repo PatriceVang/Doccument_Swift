@@ -37,9 +37,12 @@ selectionStyle = .none // bo hightlight khi selected
 
 /////Controling keyboard
 //touch outside to hide keyboard
-func touchesBegan(touches: Set<UITouch>, with event: UIEvent?) {
-	self.view.endEditing(true)
-} 
+let tap = UITapGestureRecognizer(target: self, action: #selector(touchOutSideHideKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap) 
+@objc func touchOutSideHideKeyboard() {
+        self.view.endEditing(true)
+}
 // acive btn Return inside Keyboard to shutdown
 func textFieldShouldReturn(_ textField: UITextfield) -> Bool {
 	textField.resignFirstReponder()
@@ -143,4 +146,34 @@ private func onFirebase() {
     self.data.append(actualPost)
     self.myTableView.reloadData()
 }) as! DatabaseHandle
- 
+//////////////////////////Padding placeHolder//////////////////////
+let padding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textfield.frame.height))
+            textfield.leftView = padding
+            textfield.leftViewMode = .always
+//////////////////////////Search Bar////////////////////////////
+let searchBar : UISearchBar = {
+        let sb = UISearchBar()
+        sb.tintColor = .gray
+        sb.searchTextField.backgroundColor = .white
+        return sb
+    }()
+navigationItem.titleView = searchBar
+
+/////////////////////////Navigationbartrong suốt////////////
+self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+//////////////////////Library////////////
+kingfisher...
+
+///////////////////////Pop ve tabbar chosen////////////
+func tap{
+        delegate?.goToCart()
+        self.navigationController?.popViewController(animated: true)
+        }
+
+ func goToCart() {
+        let vc = self.tabBarController?.viewControllers
+        self.tabBarController?.selectedViewController = vc?[2]
+    } 
+
