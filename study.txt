@@ -176,4 +176,16 @@ func tap{
         let vc = self.tabBarController?.viewControllers
         self.tabBarController?.selectedViewController = vc?[2]
     } 
+///////////////////////Custom lable style multiple///////////////
+    let attrs1 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15), NSAttributedString.Key.foregroundColor : UIColor.green]
+
+        let attrs2 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 25), NSAttributedString.Key.foregroundColor : UIColor.red]
+ attributedString2.append(attributedString3)
+        attributedString1.append(attributedString2)
+        self.nameLb.attributedText = attributedString
+/////////////////////Multithreading//////////////////
+User-interactive: amination, refreshing UI, R&P, intantaneous
+User-initiated: save doc, event click, need a few second R&P
+Utility: download data, import data, Focus: balance between R&P, need a few minut and hours
+Backgroud: user is not visible, indexing, synchronnizing, bakeup, focus: energy efficiency
 
