@@ -185,7 +185,23 @@ func tap{
         self.nameLb.attributedText = attributedString
 /////////////////////Multithreading//////////////////
 User-interactive: amination, refreshing UI, R&P, intantaneous
-User-initiated: save doc, event click, need a few second R&P
+User-initiated: dialog
 Utility: download data, import data, Focus: balance between R&P, need a few minut and hours
 Backgroud: user is not visible, indexing, synchronnizing, bakeup, focus: energy efficiency
-
+- concurent: thuc hien viec bat dong bo, them initIactive de xac dinh viec queue thuc hien
+//////////////////TCP/IP///////////////////////////
+là giao thức truyền tải và kết nối các thiết bị trong mạng internet
+- Tầng ứng dụng: cho phép ng dùng trao đổi dữ liệu qua các dịch vụ mạng(web, chat,..), địn dạng kiểu byte, thông tin giúp đường đi đúng của 1 gói tin 
+- Tầng vânj chuyển: Duy trì liên lạc đầu cuối trên toàn mang
+- Tầng mạng: xử lí quá trình truyển gói tin, định tuyên, chuyển tiếp, định địa chỉ, đóng gói dữ liệu, đảm bảo chất lươngj dịch vụ
+- Tầng vật lí: truyền tải dự liệu giưã các thiêt bị trong cùng 1 mạng
+//////////////////Data base /////////////////////////////
+- SQ Lite: Independeace from a sever, not Config, safe multithreading, data stroed with multi colum and type of data clear
+- CoreData: Use more memory than SQLite, use more stogage space than SQLite, Faster in fetching records than SQLite
+- Realm: easy, fater 
+//////////////////Core Data///////////////////
+- NSPersistentContainer: quan li model coredata trong app
+- ViewContext: quan li object trong coredata
+- NSEntityDescription: dung de lay ten cuar thuc the va chen them object
+- NSfetchRequest: lay data tu container presistent
+- NSPredicate: Chi dinh cach lay du lieu vaf loc
